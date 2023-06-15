@@ -1,0 +1,104 @@
+<div class="container mt-4">
+  <h2 class="text-center">Create a new Sede</h2>
+  <form class="servicio-form" [formGroup]= "servicioForm"
+      (ngSubmit)="!servicioForm.invalid && createSede(servicioForm.value)">
+      <!-- Nombre -->
+      <div class="form-group mx-sm-3 mb-2">
+          <label for="nombre">Nombre</label>
+          <input novalidate id="nombre" class="form-control" formControlName="nombre"
+              placeholder="Sede nombre" />
+          <div class="alert alert-danger alert-dismissible fade show"
+              *ngIf="servicioForm.get('nombre')!.hasError('required') && servicioForm.get('nombre')!.touched">
+              Name required
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show"
+              *ngIf="servicioForm.get('nombre')!.hasError('minlength')">
+              Name too short
+          </div>
+      </div>
+
+      <!-- Creacion Ubicacion -->
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="latitud">Latitud</label>
+        <input novalidate id="latitud" class="form-control" formControlName="latitud"
+            placeholder="Sede latitud" />
+        <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="servicioForm.get('latitud')!.hasError('required') && servicioForm.get('latitud')!.touched">
+            latitud required
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show"
+              *ngIf="servicioForm.get('latitud')!.hasError('pattern')">
+              latitud must be numeric
+        </div>
+      </div>
+
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="longitud">Longitud</label>
+        <input novalidate id="longitud" class="form-control" formControlName="longitud"
+            placeholder="Sede longitud" />
+        <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="servicioForm.get('longitud')!.hasError('required') && servicioForm.get('longitud')!.touched">
+            longitud required
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show"
+              *ngIf="servicioForm.get('longitud')!.hasError('pattern')">
+              longitud must be numeric
+        </div>
+      </div>
+
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="ciudad">Ciudad</label>
+        <input novalidate id="ciudad" class="form-control" formControlName="ciudad"
+            placeholder="Sede ciudad" />
+        <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="servicioForm.get('ciudad')!.hasError('required') && servicioForm.get('ciudad')!.touched">
+            ciudad required
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="servicioForm.get('ciudad')!.hasError('minlength')">
+            ciudad too short
+        </div>
+      </div>
+
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="direccion">Direccion</label>
+        <input novalidate id="direccion" class="form-control" formControlName="direccion"
+            placeholder="Sede direccion" />
+        <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="servicioForm.get('direccion')!.hasError('required') && servicioForm.get('direccion')!.touched">
+            direccion required
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show"
+            *ngIf="servicioForm.get('direccion')!.hasError('minlength')">
+            direccion too short
+        </div>
+      </div>
+
+      <!--Image, which must be a valid url-->
+      <div class="form-group mx-sm-3 mb-2">
+          <label for="imagen">Imagen</label>
+          <input novalidate id="imagen" class="form-control" formControlName="imagen"
+              placeholder="Sede imagen" />
+          <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+                  servicioForm.get('imagen')!.hasError('required') &&
+                  servicioForm.get('imagen')!.touched
+                ">
+              Image required
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show"
+              *ngIf="servicioForm.get('imagen')!.hasError('pattern')">
+              Image must be a valid url
+          </div>
+      </div>
+
+
+
+
+      <button id="submit" type="submit" class="btn btn-primary" [disabled]="!servicioForm.valid">
+          Create
+      </button>
+      <button type="button" class="btn btn-danger ml-3" (click)="cancelCreation()">
+          Cancel
+      </button>
+  </form>
+</div>

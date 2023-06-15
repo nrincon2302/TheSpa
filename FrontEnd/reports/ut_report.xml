@@ -1,0 +1,221 @@
+<testExecutions version="1">
+  <file path="src/app/trabajador/trabajador-detail/trabajador-detail.component.spec.ts">
+    <testCase name="TrabajadorDetailComponent should have an trabajador calificacion" duration="56"/>
+    <testCase name="TrabajadorDetailComponent should have an trabajador foto" duration="12"/>
+    <testCase name="TrabajadorDetailComponent should have an trabajador enHallOfFame" duration="15"/>
+    <testCase name="TrabajadorDetailComponent should have an trabajador name" duration="10"/>
+    <testCase name="TrabajadorDetailComponent should have an trabajador" duration="12"/>
+    <testCase name="TrabajadorDetailComponent should have an trabajador id" duration="10"/>
+    <testCase name="TrabajadorDetailComponent should create" duration="11"/>
+  </file>
+  <file path="src/app/servicio/servicio-create/servicio-create.component.spec.ts">
+    <testCase name="ServicioCreateComponent should create" duration="61"/>
+    <testCase name="ServicioCreateComponent should have a button with id submit and with type submit" duration="10"/>
+    <testCase name="ServicioCreateComponent should have an input with id nombre and with formControlName nombre " duration="6"/>
+  </file>
+  <file path="src/app/servicioExtra/servicioExtra-list/servicioExtra-list.component.spec.ts">
+    <testCase name="ServicioExtraListComponent should create" duration="21"/>
+    <testCase name="ServicioExtraListComponent should have a list of serviciosExtra" duration="10"/>
+  </file>
+  <file path="src/app/servicioExtra/servicioExtra-detail/servicioExtra-detail.component.spec.ts">
+    <testCase name="AuthorDetailComponent should have a servicioExtra defined" duration="20"/>
+    <testCase name="AuthorDetailComponent should have a id defined" duration="4"/>
+    <testCase name="AuthorDetailComponent should have a precio defined" duration="11"/>
+    <testCase name="AuthorDetailComponent should have a imagen defined" duration="5"/>
+    <testCase name="AuthorDetailComponent should have a name defined" duration="5"/>
+    <testCase name="AuthorDetailComponent should have a descripcion defined" duration="4"/>
+    <testCase name="AuthorDetailComponent should create" duration="4"/>
+    <testCase name="AuthorDetailComponent should have a disponible defined" duration="3"/>
+    <testCase name="AuthorDetailComponent should have a sede defined" duration="3"/>
+  </file>
+  <file path="src/app/pack/pack.service.spec.ts">
+    <testCase name="Service: Pack should ..." duration="1"/>
+  </file>
+  <file path="src/app/trabajador/trabajador.service.spec.ts">
+    <testCase name="Service: Trabajador should ..." duration="1"/>
+  </file>
+  <file path="src/app/trabajador/trabajador.component.spec.ts">
+    <testCase name="TrabajadorComponent a trabajador should be a TrabajadorDetail" duration="17"/>
+    <testCase name="TrabajadorComponent should have a list of trabajadores" duration="8"/>
+    <testCase name="TrabajadorComponent should create" duration="7"/>
+    <testCase name="TrabajadorComponent should have a list of sedes" duration="6"/>
+    <testCase name="TrabajadorComponent should have a servicios" duration="8"/>
+  </file>
+  <file path="src/app/sede/sede-detail/sede-detail.component.spec.ts">
+    <testCase name="SedeDetailComponent should have a list of servicios extra" duration="19"/>
+    <testCase name="SedeDetailComponent should have a list of articulos" duration="6"/>
+    <testCase name="SedeDetailComponent should create" duration="6"/>
+    <testCase name="SedeDetailComponent should have a list of servicios" duration="4"/>
+    <testCase name="SedeDetailComponent should have a list of trabajadores" duration="6"/>
+    <testCase name="SedeDetailComponent should have a list of packs" duration="4"/>
+    <testCase name="SedeDetailComponent should have a ubicacion" duration="5"/>
+    <testCase name="SedeDetailComponent should have a name" duration="8"/>
+    <testCase name="SedeDetailComponent should have an image" duration="4"/>
+  </file>
+  <file path="src/app/servicio/servicio-update/servicio-update.component.spec.ts">
+    <testCase name="ServicioUpdateComponent should have an input with id duracion and with formControlName duracion " duration="17"/>
+    <testCase name="ServicioUpdateComponent should have an input with id restricciones and with formControlName restricciones " duration="8"/>
+    <testCase name="ServicioUpdateComponent should create" duration="7"/>
+    <testCase name="ServicioUpdateComponent should have an input with id descripcion and with formControlName descripcion " duration="8"/>
+    <testCase name="ServicioUpdateComponent should have an input with id precio and with formControlName precio " duration="9"/>
+    <testCase name="ServicioUpdateComponent should have an input with id nombre and with formControlName nombre " duration="7"/>
+    <testCase name="ServicioUpdateComponent should have a button with id submit and with type submit" duration="10"/>
+  </file>
+  <file path="src/app/pack/pack-detail/pack-detail.component.spec.ts">
+    <testCase name="PackDetailComponent should have services" duration="10"/>
+    <testCase name="PackDetailComponent should create" duration="4"/>
+    <testCase name="PackDetailComponent should have a sede" duration="3"/>
+    <testCase name="PackDetailComponent should have an image" duration="4"/>
+    <testCase name="PackDetailComponent should have a name" duration="4"/>
+    <testCase name="PackDetailComponent should have a discount" duration="3"/>
+    <testCase name="PackDetailComponent should have a pack" duration="4"/>
+  </file>
+  <file path="src/app/sede/sede-list/sede-list.component.spec.ts">
+    <testCase name="SedeListComponent should have a ubicacion" duration="13"/>
+    <testCase name="SedeListComponent should have a list of trabajadores" duration="7"/>
+    <testCase name="SedeListComponent should have a list of articulos" duration="4"/>
+    <testCase name="SedeListComponent should have a list of servicios extra" duration="5"/>
+    <testCase name="SedeListComponent should have a list of servicios" duration="3"/>
+    <testCase name="SedeListComponent should have a list of packs" duration="5"/>
+    <testCase name="SedeListComponent should create" duration="7"/>
+    <testCase name="SedeListComponent should have a list of sedes" duration="4"/>
+  </file>
+  <file path="src/app/servicioExtra/servicioExtra.service.spec.ts">
+    <testCase name="Service: ServicioExtra should ..." duration="2"/>
+  </file>
+  <file path="src/app/servicioExtra/servicioExtra-update/servicioExtra-update.component.spec.ts">
+    <testCase name="ServicioExtraUpdateComponent should have an input with id precio and with formControlName precio " duration="17"/>
+    <testCase name="ServicioExtraUpdateComponent should have an input with id descripcion and with formControlName descripcion " duration="6"/>
+    <testCase name="ServicioExtraUpdateComponent should create" duration="8"/>
+    <testCase name="ServicioExtraUpdateComponent should have an input with id imagen and with formControlName imagen " duration="8"/>
+    <testCase name="ServicioExtraUpdateComponent should have an input with id nombre and with formControlName nombre " duration="8"/>
+    <testCase name="ServicioExtraUpdateComponent should have a button with id submit and with type submit" duration="8"/>
+  </file>
+  <file path="src/app/footerPanel/footerPanel.component.spec.ts">
+    <testCase name="FooterPanelComponent should create" duration="4"/>
+  </file>
+  <file path="src/app/pack/pack-list/pack-list.component.spec.ts">
+    <testCase name="AuthorListComponent should create" duration="18"/>
+    <testCase name="AuthorListComponent a pack should be a packDetail" duration="6"/>
+    <testCase name="AuthorListComponent should have 10 packs" duration="11"/>
+    <testCase name="AuthorListComponent should have a list of packs" duration="7"/>
+  </file>
+  <file path="src/app/servicio/servicio.service.spec.ts">
+    <testCase name="Service: Servicio should ..." duration="1"/>
+  </file>
+  <file path="src/app/articulo/articulo-create/articulo-create.component.spec.ts">
+    <testCase name="ArticuloCreateComponent should have an input with id nombre and with formControlName nombre " duration="20"/>
+    <testCase name="ArticuloCreateComponent should have an input with id descripcion and with formControlName descripcion " duration="10"/>
+    <testCase name="ArticuloCreateComponent should create" duration="7"/>
+    <testCase name="ArticuloCreateComponent should have a button with id submit and with type submit" duration="8"/>
+    <testCase name="ArticuloCreateComponent should have an input with id precio and with formControlName precio " duration="12"/>
+    <testCase name="ArticuloCreateComponent should have an input with id imagen and with formControlName imagen " duration="12"/>
+    <testCase name="ArticuloCreateComponent should have an input with id numDisponible and with formControlName numDisponible " duration="10"/>
+    <testCase name="ArticuloCreateComponent should have an input with id color and with formControlName color " duration="6"/>
+    <testCase name="ArticuloCreateComponent should have an input with id talla and with formControlName talla " duration="10"/>
+  </file>
+  <file path="src/app/articulo/articulo-detail/articulo-detail.component.spec.ts">
+    <testCase name="ArticuloDetailComponent should have an articulo talla" duration="9"/>
+    <testCase name="ArticuloDetailComponent should create" duration="3"/>
+    <testCase name="ArticuloDetailComponent should have an articulo" duration="2"/>
+    <testCase name="ArticuloDetailComponent should have an articulo color" duration="4"/>
+    <testCase name="ArticuloDetailComponent should have a sede" duration="4"/>
+    <testCase name="ArticuloDetailComponent should have an articulo imagen" duration="3"/>
+    <testCase name="ArticuloDetailComponent should have an articulo precio" duration="2"/>
+    <testCase name="ArticuloDetailComponent should have an articulo description" duration="2"/>
+    <testCase name="ArticuloDetailComponent should have an articulo name" duration="3"/>
+    <testCase name="ArticuloDetailComponent should have an articulo numDisponible" duration="4"/>
+  </file>
+  <file path="src/app/ubicacion/ubicacion.service.spec.ts">
+    <testCase name="Service: Sede should ..." duration="1"/>
+  </file>
+  <file path="src/app/servicio/servicio-list/servicio-list.component.spec.ts">
+    <testCase name="ServicioListComponent should have a list of servicios" duration="19"/>
+    <testCase name="ServicioListComponent should create" duration="7"/>
+  </file>
+  <file path="src/app/articulo/articulo-list/articulo-list.component.spec.ts">
+    <testCase name="ArticuloListComponent should create" duration="16"/>
+    <testCase name="ArticuloListComponent should have a list of articulos de ropa" duration="5"/>
+  </file>
+  <file path="src/app/pack/pack-update/pack-update.component.spec.ts">
+    <testCase name="PackCreateComponent should have an input with id nombre and with formControlName nombre " duration="15"/>
+    <testCase name="PackCreateComponent should have a button with id submit and with type submit" duration="9"/>
+    <testCase name="PackCreateComponent should create" duration="6"/>
+    <testCase name="PackCreateComponent should have an input with id imagen and with formControlName imagen " duration="6"/>
+    <testCase name="PackCreateComponent should have an input with id descuento and with formControlName descuento " duration="6"/>
+  </file>
+  <file path="src/app/servicioExtra/servicioExtra-create/servicioExtra-create.component.spec.ts">
+    <testCase name="ServicioExtraCreateComponent should have a button with id submit and with type submit" duration="15"/>
+    <testCase name="ServicioExtraCreateComponent should have an input with id nombre and with formControlName nombre " duration="8"/>
+    <testCase name="ServicioExtraCreateComponent should create" duration="11"/>
+    <testCase name="ServicioExtraCreateComponent should have an input with id imagen and with formControlName imagen " duration="11"/>
+    <testCase name="ServicioExtraCreateComponent should have an input with id descripcion and with formControlName descripcion " duration="8"/>
+    <testCase name="ServicioExtraCreateComponent should have an input with id precio and with formControlName precio " duration="15"/>
+  </file>
+  <file path="src/app/pack/pack-update/pack-update.component.spec.ts">
+    <testCase name="PackCreateComponent should have an input with id nombre and with formControlName nombre " duration="39"/>
+    <testCase name="PackCreateComponent should have an input with id descuento and with formControlName descuento " duration="17"/>
+    <testCase name="PackCreateComponent should have an input with id imagen and with formControlName imagen " duration="19"/>
+    <testCase name="PackCreateComponent should have a button with id submit and with type submit" duration="20"/>
+    <testCase name="PackCreateComponent should create" duration="11"/>
+  </file>
+  <file path="src/app/sede/sede-update/sede-update.component.spec.ts">
+    <testCase name="SedeUpdateComponent should create" duration="24"/>
+  </file>
+  <file path="src/app/articulo/articulo.service.spec.ts">
+    <testCase name="Service: Articulo should ..." duration="2"/>
+  </file>
+  <file path="src/app/servicio/servicio-create/servicio-create.component.spec.ts">
+    <testCase name="ServicioCreateComponent should have an input with id duracion and with formControlName duracion " duration="43"/>
+    <testCase name="ServicioCreateComponent should have an input with id descripcion and with formControlName descripcion " duration="7"/>
+    <testCase name="ServicioCreateComponent should have an input with id nombre and with formControlName nombre " duration="7"/>
+    <testCase name="ServicioCreateComponent should have an input with id precio and with formControlName precio " duration="6"/>
+    <testCase name="ServicioCreateComponent should have a button with id submit and with type submit" duration="9"/>
+    <testCase name="ServicioCreateComponent should create" duration="5"/>
+  </file>
+  <file path="src/app/ubicacion/ubicacion.service.spec.ts">
+    <testCase name="Service: Sede should run #getUbicaciones()" duration="2"/>
+    <testCase name="Service: Sede should run #getUbicacionDetail()" duration="2"/>
+    <testCase name="Service: Sede should ..." duration="2"/>
+  </file>
+  <file path="src/app/articulo/articulo-update/articulo-update.component.spec.ts">
+    <testCase name="ArticuloUpdateComponent should have an input with id imagen and with formControlName imagen " duration="13"/>
+    <testCase name="ArticuloUpdateComponent should have an input with id talla and with formControlName talla " duration="8"/>
+    <testCase name="ArticuloUpdateComponent should have an input with id precio and with formControlName precio " duration="8"/>
+    <testCase name="ArticuloUpdateComponent should have an input with id descripcion and with formControlName descripcion " duration="6"/>
+    <testCase name="ArticuloUpdateComponent should have a button with id submit and with type submit" duration="9"/>
+    <testCase name="ArticuloUpdateComponent should have an input with id nombre and with formControlName nombre " duration="7"/>
+    <testCase name="ArticuloUpdateComponent should have an input with id numDisponible and with formControlName numDisponible " duration="7"/>
+    <testCase name="ArticuloUpdateComponent should have an input with id color and with formControlName color " duration="7"/>
+    <testCase name="ArticuloUpdateComponent should create" duration="6"/>
+  </file>
+  <file path="src/app/home/home.component.spec.ts">
+    <testCase name="HomeComponent should create" duration="7"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should create the app" duration="6"/>
+    <testCase name="AppComponent should have as title 'base-project'" duration="2"/>
+  </file>
+  <file path="src/app/servicioExtra/servicioExtra-detail/servicioExtra-detail.component.spec.ts">
+    <testCase name="AuthorDetailComponent should have a image" duration="8"/>
+    <testCase name="AuthorDetailComponent should have a price" duration="4"/>
+    <testCase name="AuthorDetailComponent should have a description" duration="2"/>
+    <testCase name="AuthorDetailComponent should have a name" duration="3"/>
+    <testCase name="AuthorDetailComponent should have a servicio" duration="2"/>
+    <testCase name="AuthorDetailComponent should have a trabajadores" duration="2"/>
+    <testCase name="AuthorDetailComponent should create" duration="3"/>
+    <testCase name="AuthorDetailComponent should have a description" duration="3"/>
+    <testCase name="AuthorDetailComponent should have a available" duration="2"/>
+    <testCase name="AuthorDetailComponent should have a duration" duration="3"/>
+    <testCase name="AuthorDetailComponent should have a sede" duration="2"/>
+  </file>
+  <file path="src/app/imageSlider/imageSlider.component.spec.ts">
+    <testCase name="ImageSliderComponent should return the current slide URL correctly" duration="7"/>
+    <testCase name="ImageSliderComponent should create the component" duration="2"/>
+    <testCase name="ImageSliderComponent should go to the next slide correctly" duration="2"/>
+    <testCase name="ImageSliderComponent should go to the previous slide correctly" duration="1"/>
+    <testCase name="ImageSliderComponent should go to a specific slide correctly" duration="1"/>
+    <testCase name="ImageSliderComponent should return the current slide title correctly" duration="1"/>
+    <testCase name="ImageSliderComponent should initialize with default values" duration="2"/>
+  </file>
+</testExecutions>

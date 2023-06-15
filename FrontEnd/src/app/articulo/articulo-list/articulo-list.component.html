@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="row separate-bot">
+    <div class="d-flex justify-content-center">
+      <h1 class="spaFont">Artículos</h1>
+    </div>
+
+    <div class="row">
+      <div style="height: 20px;"></div>
+    </div>
+
+
+    <div class="col-3">
+      <div class="row">
+        <div style="height: 20px;"></div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control rounded my-button spaFont2" [(ngModel)]="searchNombre"
+          placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <span class="input-group-text button-label">
+            <img class="lupa-button" src="https://github.com/JuanCoronel/SisTrans-Group/blob/main/lupa.png?raw=true"
+              alt="Lupa" (click)="getArticulosDeRopa()">
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div style="height: 30px;"></div>
+      </div>
+
+      <h3 class="spaFont">Filtros</h3>
+
+      <div class="accordion font-size: 15px; spaNewBg">
+        <h6 class="spaFont align1">Sede</h6>
+        <div class="row">
+          <div style="height: 20px;"></div>
+        </div>
+
+        <div class="accordion-header" (click)="toggleAccordion(0)">
+          <p class="spaFont3">Sede</p>
+          <button class="accordion-btn">{{isOpen[0] ? '-' : '+'}}</button>
+        </div>
+
+        <div class="accordion-content" [hidden]="!isOpen[0]">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control rounded my-button2 spaFont2" [(ngModel)]="searchSedeNombre"
+              placeholder="Nombre sede" aria-label="Nombre sede" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text button-label">
+                <img class="lupa-button" src="https://github.com/JuanCoronel/SisTrans-Group/blob/main/lupa.png?raw=true"
+                  alt="Lupa" (click)="getArticulosDeRopa()">
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div style="height: 20px;"></div>
+      </div>
+
+      <div class="accordion font-size: 15px; spaNewBg">
+        <h6 class="spaFont align1">Articulo</h6>
+        <div class="row">
+          <div style="height: 20px;"></div>
+        </div>
+
+        <div class="accordion-header" (click)="toggleAccordion(1)">
+          <p class="spaFont3">Articulo</p>
+          <button class="accordion-btn">{{isOpen[1] ? '-' : '+'}}</button>
+        </div>
+
+        <div class="accordion-content" [hidden]="!isOpen[1]">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control rounded my-button2 spaFont2"
+              [(ngModel)]="searchPrecioMax === 9007199254740991 ? '' : searchPrecioMax" placeholder="Precio máximo"
+              (ngModelChange)="searchPrecioMax = $event" aria-label="Precio máximo" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text button-label">
+                <img class="lupa-button" src="https://github.com/JuanCoronel/SisTrans-Group/blob/main/lupa.png?raw=true"
+                  alt="Lupa" (click)="getArticulosDeRopa()">
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-9">
+      <div>
+        <section class="gallery-block cards-gallery">
+          <div class="row">
+            <div class="col-4" *ngFor="let articulo of articulosDeRopa; let i = index">
+              <a routerLink="/articulos/{{articulo.id}}">
+                <div class="card border-0 transform-on-hover custom-border">
+                  <img src={{articulo.imagen}} alt="Card Image" class="card-img-top">
+                  <div class="card-body">
+                    <h6>
+                      {{articulo.nombre}}
+                    </h6>
+                    <p class="spaFont22 d-flex justify-content-center">${{articulo.precio}}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Texto centrado que permite crear un servicio -->
+
+  <div class="text-center">
+    <a routerLink="/articulos/create" class="btn-primary btn">Crear Artículo</a>
+  </div>

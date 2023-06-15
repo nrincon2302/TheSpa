@@ -1,0 +1,180 @@
+.heading {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.heading h2 {
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.slider-wrapper {
+  position: relative;
+  height: 250px;
+  width: 70%;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.slider-track {
+  display: flex;
+  width: calc(250*6);
+  animation: slidescroll 70s linear infinite;
+
+}
+
+.slider-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes slidescroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.slide {
+  width: 250px;
+  height: 250px;
+  align-items: center;
+  padding: 15px;
+  overflow: hidden;
+  perspective: 100px;
+  cursor: pointer;
+  border-radius: 10%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s;
+}
+
+.slide img:hover {
+  transform: translateZ(20px)
+}
+
+.slider-wrapper::before,
+.slider-wrapper::after {
+  background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 15%;
+  z-index: 2;
+}
+
+.slider-wrapper::before {
+  left: 0;
+  top: 0;
+}
+
+.slider-wrapper::after {
+  right: -2px;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+img {
+  width: 400px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.col-5 {
+  text-align: right;
+}
+
+.checked {
+  color: orange;
+}
+
+.stars {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,
+p,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif
+    /*rtl:Amiri, Georgia, "Times New Roman", serif*/
+  ;
+  color: #2B2929;
+
+}
+
+.spaFont21 {
+  font-family: 'Jost', sans-serif;
+  font-style: normal;
+  color: #CDA274;
+}
+
+.rating {
+  font-size: 15px;
+  /* Ajusta el tamaño de la fuente según tus preferencias */
+  color: gold;
+  /* Cambia el color de las estrellas según tus preferencias */
+}
+
+.spaFont22 {
+  font-family: 'Jost', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #2B2929;
+  font-size: 17px;
+}
+
+
+
+.spaFont {
+  font-family: 'DM Serif Display', serif;
+  color: #2B2929;
+}
+
+.roundedImg {
+  border-radius: 55px;
+
+}
+
+a:link {
+  text-decoration: none;
+  color: #2B2929
+}
+
+a:visited {
+  text-decoration: none;
+  color: #2B2929
+}
+
+a:hover {
+  text-decoration: none;
+  color: #2B2929
+}
+
+a:active {
+  text-decoration: none;
+  color: #2B2929
+}

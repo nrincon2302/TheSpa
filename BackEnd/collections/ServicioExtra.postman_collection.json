@@ -1,0 +1,829 @@
+{
+	"info": {
+		"_postman_id": "bffeed84-feff-4509-ae21-53639b94b5bb",
+		"name": "ServicioExtra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25519060"
+	},
+	"item": [
+		{
+			"name": "Crear una ubicación",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"ubicacion_id_1\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"latitud\": 4.603014,\n    \"longitud\": 74.065227,\n    \"ciudad\": \"Bogotá\",\n    \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ubicaciones",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ubicaciones"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una ubicación",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"latitud\": 4.603014,\n    \"longitud\": 74.065227,\n    \"ciudad\": \"Bogotá\",\n    \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ubicaciones",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ubicaciones"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Crear una Sede",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"sede_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Spa del Jardín\",\r\n    \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n    \"ubicacion\": {\r\n        \"id\": {{ubicacion_id_1}}\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/sedes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"sedes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una Sede",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Spa del Jardín\",\r\n    \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n    \"ubicacion\": {\r\n        \"id\": 1,\r\n        \"latitud\": 4.603014,\r\n        \"longitud\": 74.065227,\r\n        \"ciudad\": \"Bogotá\",\r\n        \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\",\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/sedes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sedes"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Crear un Servicio Extra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"servicioextra_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Sandwich Gourmet\",\r\n    \"descripcion\": \"Para disfrutar mientras espera ser atendido\",\r\n    \"precio\": 5000.0,\r\n    \"imagen\": \"https://d320djwtwnl5uo.cloudfront.net/recetas/cover/s-ndw_AfsS859PRoHcJpKwd6r4Me0FUBDtCg.png\",\r\n    \"disponible\": true,\r\n    \"sede\": {\r\n        \"id\": {{sede_id_1}}\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/serviciosExtra",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serviciosExtra"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un Servicio Extra",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Sandwich Gourmet\",\r\n    \"descripción\": \"Para disfrutar mientras espera ser atendido\",\r\n    \"precio\": 5000.0,\r\n    \"imagen\": \"https://d320djwtwnl5uo.cloudfront.net/recetas/cover/s-ndw_AfsS859PRoHcJpKwd6r4Me0FUBDtCg.png\",\r\n    \"disponible\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/serviciosextra",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serviciosextra"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Sandwich Gourmet\",\r\n    \"descripción\": \"Para disfrutar mientras espera ser atendido\",\r\n    \"precio\": 5000.0,\r\n    \"imagen\": \"https://d320djwtwnl5uo.cloudfront.net/recetas/cover/s-ndw_AfsS859PRoHcJpKwd6r4Me0FUBDtCg.png\",\r\n    \"disponible\": true\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los Servicios Extra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of servicios extras > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/serviciosExtra",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serviciosExtra"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los Servicios Extra",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/serviciosextra",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serviciosextra"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": 1,\r\n        \"nombre\": \"Sandwich Gourmet\",\r\n        \"descripción\": \"Para disfrutar mientras espera ser atendido\",\r\n        \"precio\": 5000.0,\r\n        \"imagen\": \"https://d320djwtwnl5uo.cloudfront.net/recetas/cover/s-ndw_AfsS859PRoHcJpKwd6r4Me0FUBDtCg.png\",\r\n        \"disponible\": true\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un Servicio Extra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/serviciosExtra/{{servicioextra_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serviciosExtra",
+						"{{servicioextra_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un Servicio Extra",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/serviciosextra/{{servicioextra_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serviciosextra",
+								"{{servicioextra_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Sandwich Gourmet\",\r\n    \"descripción\": \"Para disfrutar mientras espera ser atendido\",\r\n    \"precio\": 5000.0,\r\n    \"imagen\": \"https://d320djwtwnl5uo.cloudfront.net/recetas/cover/s-ndw_AfsS859PRoHcJpKwd6r4Me0FUBDtCg.png\",\r\n    \"disponible\": true\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un Servicio Extra que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"El servicio extra con el id = {0} no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/serviciosExtra/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serviciosExtra",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un Servicio Extra que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/serviciosextra/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serviciosextra",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:01:09\",\r\n        \"message\": \"El servicio extra con el id = {0} no existe\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Editar un Servicio Extra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Sandwich Gourmet\",\r\n    \"descripción\": \"Para disfrutar mientras espera ser atendido\",\r\n    \"precio\": 7000.0,\r\n    \"imagen\": \"https://d320djwtwnl5uo.cloudfront.net/recetas/cover/s-ndw_AfsS859PRoHcJpKwd6r4Me0FUBDtCg.png\",\r\n    \"disponible\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/serviciosExtra/{{servicioextra_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serviciosExtra",
+						"{{servicioextra_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Editar un Servicio Extra",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Sandwich Gourmet\",\r\n    \"descripción\": \"Para disfrutar mientras espera ser atendido\",\r\n    \"precio\": 7000.0,\r\n    \"imagen\": \"https://d320djwtwnl5uo.cloudfront.net/recetas/cover/s-ndw_AfsS859PRoHcJpKwd6r4Me0FUBDtCg.png\",\r\n    \"disponible\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/serviciosextra/{{servicioextra_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serviciosextra",
+								"{{servicioextra_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Sandwich Gourmet\",\r\n    \"descripción\": \"Para disfrutar mientras espera ser atendido\",\r\n    \"precio\": 7000.0,\r\n    \"imagen\": \"https://d320djwtwnl5uo.cloudfront.net/recetas/cover/s-ndw_AfsS859PRoHcJpKwd6r4Me0FUBDtCg.png\",\r\n    \"disponible\": true\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Editar un Servicio Extra que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"El servicio extra con el id = {0} no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Coctel\",\r\n    \"descripción\": \"Para disfrutar mientras espera ser atendido\",\r\n    \"precio\": 15000.0,\r\n    \"imagen\": \"https://www.drinksco.es/blog/assets/uploads/sites/2/2020/05/cocktail-3327242_1920-1170x780.jpg\",\r\n    \"disponible\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/serviciosExtra/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serviciosExtra",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Editar un Servicio Extra que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Coctel\",\r\n    \"descripción\": \"Para disfrutar mientras espera ser atendido\",\r\n    \"precio\": 15000.0,\r\n    \"imagen\": \"https://www.drinksco.es/blog/assets/uploads/sites/2/2020/05/cocktail-3327242_1920-1170x780.jpg\",\r\n    \"disponible\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/serviciosextra/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serviciosextra",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:04:10\",\r\n        \"message\": \"El Servicio Extra del id dado no fue encontrado\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un Servicio Extra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/serviciosExtra/{{servicioextra_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serviciosExtra",
+						"{{servicioextra_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un Servicio Extra",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/serviciosextra/{{servicioextra_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serviciosextra",
+								"{{servicioextra_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar un Servicio Extra que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"No se encontró el servicio extra con id = 0\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/serviciosExtra/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"serviciosExtra",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un Servicio Extra que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/serviciosextra/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"serviciosextra",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:05:19\",\r\n        \"message\": \"El Servicio Extra del id dado no fue encontrado\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar una Sede",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/sedes/{{sede_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"sedes",
+						"{{sede_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una Sede",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/sedes/{{sede_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sedes",
+								"{{sede_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una Ubicación",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ubicaciones/{{ubicacion_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ubicaciones",
+						"{{ubicacion_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una Ubicación",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ubicaciones/{{ubicacion_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ubicaciones",
+								"{{ubicacion_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	]
+}

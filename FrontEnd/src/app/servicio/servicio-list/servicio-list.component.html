@@ -1,0 +1,208 @@
+<div class="container">
+  <div class="row separate-bot">
+
+    <!-- TITULO -->
+
+    <div class="d-flex justify-content-center">
+      <h1 class="spaFont">Servicios</h1>
+    </div>
+
+    <div class="row">
+
+      <div style="height: 20px;"></div>
+
+    </div>
+
+
+
+    <!-- LADO IZQUIERDO  - FILTROS -->
+
+
+
+    <div class="col-3">
+
+      <div class="row">
+
+        <div style="height: 20px;"></div>
+
+      </div>
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control rounded my-button spaFont2" [(ngModel)]="searchNombre"
+          placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <span class="input-group-text button-label">
+            <img class="lupa-button" src="https://github.com/JuanCoronel/SisTrans-Group/blob/main/lupa.png?raw=true"
+              alt="Lupa" (click)="getServices()">
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div style="height: 30px;"></div>
+
+      </div>
+
+      <h3 class="spaFont">Filtros</h3>
+
+
+
+      <div class="accordion  font-size: 15px; spaNewBg">
+
+
+        <h6 class="spaFont align1">Sede</h6>
+
+        <div class="row">
+
+          <div style="height: 20px;"></div>
+
+        </div>
+
+        <div class="accordion-header" (click)="toggleAccordion(0)">
+          <p class="spaFont3">Nombre</p>
+          <button class="accordion-btn">{{ isOpen[0] ? '-' : '+' }}</button>
+        </div>
+        <div class="accordion-content" [hidden]="!isOpen[0]">
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control rounded my-button2 spaFont2" [(ngModel)]="searchSedeNombre"
+              placeholder="Nombre sede" aria-label="Nombre sede" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text button-label">
+                <img class="lupa-button" src="https://github.com/JuanCoronel/SisTrans-Group/blob/main/lupa.png?raw=true"
+                  alt="Lupa" (click)="getServices()">
+              </span>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div class="row">
+
+        <div style="height: 20px;"></div>
+
+      </div>
+
+
+
+
+      <div class="accordion  font-size: 15px; spaNewBg">
+
+
+        <h6 class="spaFont align1">Servicio</h6>
+
+        <div class="row">
+
+          <div style="height: 20px;"></div>
+
+        </div>
+
+        <div class="accordion-header" (click)="toggleAccordion(1)">
+          <p class="spaFont3">Descripcion</p>
+          <button class="accordion-btn">{{ isOpen[1] ? '-' : '+' }}</button>
+        </div>
+        <div class="accordion-content" [hidden]="!isOpen[1]">
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control rounded my-button2 spaFont2" [(ngModel)]="searchDescripcion"
+              placeholder="Descripcion servicio" aria-label="Descripcion servicio" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text button-label">
+                <img class="lupa-button" src="https://github.com/JuanCoronel/SisTrans-Group/blob/main/lupa.png?raw=true"
+                  alt="Lupa" (click)="getServices()">
+              </span>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <!-- Adds a horizontal line divider -->
+
+
+        <div class="accordion-header" (click)="toggleAccordion(2)">
+          <p class="spaFont3">Precio</p>
+          <button class="accordion-btn">{{ isOpen[2] ? '-' : '+' }}</button>
+        </div>
+        <div class="accordion-content" [hidden]="!isOpen[2]">
+
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control rounded my-button2 spaFont2"
+              [(ngModel)]="searchPrecioMax === 9007199254740991 ? '' : searchPrecioMax" placeholder="Precio maximo"
+              (ngModelChange)="searchPrecioMax = $event" aria-label="Precio maximo" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text button-label">
+                <img class="lupa-button" src="https://github.com/JuanCoronel/SisTrans-Group/blob/main/lupa.png?raw=true"
+                  alt="Lupa" (click)="getServices()">
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+    <!-- LADO DERECHO - LISTADOS -->
+
+    <!-- Despliegue del titulo 'servicios' -->
+    <div class="col-9">
+      <!-- Aquí iría el contenido del título -->
+
+      <div>
+        <section class="gallery-block cards-gallery">
+
+
+          <div class="row">
+            <div class="col-4" *ngFor="let servicio of servicios; let i = index">
+              <div class="card border-0 transform-on-hover custom-border">
+                <img src={{servicio.imagen}} alt="Card Image" class="card-img-top">
+                <div class="card-body">
+                  <h6 class="spaFont"><a class="link" routerLink="/servicios/{{servicio.id}}">{{servicio.nombre}}</a>
+                  </h6>
+                  <p class="spaFont22 d-flex justify-content-center">{{servicio.descripcion}}</p>
+
+                  <p class="spaFont22 d-flex justify-content-center">${{servicio.precio}}</p>
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+  </div>
+
+
+</div>
+
+<!-- Texto centrado que permite crear un servicio -->
+
+<div class="text-center">
+  <a routerLink="/servicios/create" class="btn-primary btn">Crear Servicio</a>
+</div>

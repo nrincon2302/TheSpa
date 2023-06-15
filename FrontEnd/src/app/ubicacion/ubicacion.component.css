@@ -1,0 +1,134 @@
+/* stylelint-disable selector-list-comma-newline-after */
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 .display-4 {
+  font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
+  }
+}
+
+
+
+
+
+
+.imgContainer {
+  max-height: fit-content;
+}
+
+
+@media (min-width: 768px) {
+  .h-md-250 {
+    height: 250px;
+  }
+}
+
+
+.link {
+  color: #212529;
+}
+
+.imagen img {
+  height: 200px;
+  width: 200px;
+  display: block;
+  margin: auto;
+
+  object-fit: contain;
+  position: absolute;
+  max-width: 100%;
+}
+
+/*
+   * Footer
+   */
+.blog-footer {
+  padding: 2.5rem 0;
+  color: #727272;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+}
+
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.spa-bg {
+  background-image: url('https://www.fourseasons.com/alt/img-opt/~70.1530.0,0000-84,2500-3000,0000-1687,5000/publish/content/dam/fourseasons/images/web/TRI/TRI_186_original.jpg');
+  background-size: cover;
+  height: 600px !important;
+  border-bottom-left-radius: 160px;
+}
+
+.texto {
+  text-align: justify;
+  margin-top: 120px;
+  margin-left: 120px;
+}
+
+.spaFont {
+
+  font-family: 'DM Serif Display', serif;
+  font-weight: 20px !important;
+}
+
+.but1 {
+  background-color: #ffffff;
+  height: 60px;
+  width: 200px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.fontInside {
+  color: #212529;
+  text-align: center;
+  font-family: 'Jost', sans-serif;
+  vertical-align: center;
+  font-weight: 500;
+}
+
+.rectangulo {
+  width: 200px;
+  height: 60px;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 18px;
+  position: relative;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.rectangulo:hover {
+  background-color: #F4F0EC;
+  transform: scale(1.02);
+}

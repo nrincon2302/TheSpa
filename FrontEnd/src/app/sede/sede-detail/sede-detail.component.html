@@ -1,0 +1,147 @@
+<main class="container">
+
+
+  <div class="p-4 p-md-5 mb-4 text-white spa-bg"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.100),rgba(0, 0, 0, 0.5)) ,url('{{sedeDetail.imagen}}');">
+
+    <div class="col-md-6 texto">
+      <h1 class="spaFont2">{{sedeDetail.nombre}}</h1>
+
+      <p class="spaFont3 margin1 justify-content-left">{{sedeDetail.ubicacion.direccion}}</p>
+
+      <h3 class="spaFont3 justify-content-left">{{sedeDetail.ubicacion.ciudad}}</h3>
+
+      <p class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+
+      <!-- Crea un margen superior de 4 unidades|-->
+
+      <div class="mt-5"></div>
+
+
+      <div class="mt-3"></div>
+    </div>
+  </div>
+
+
+
+
+
+</main>
+
+<!-- RELACIONES DE LA SEDE -->
+<section class="gallery-block cards-gallery">
+  <main class="container">
+
+    <h2 class="spaFont">Articulos de ropa</h2>
+    <hr>
+    <div class="row">
+      <div class="col-4" *ngFor="let articulo of sedeDetail.articulos; let i = index">
+        <div class="card border-0 transform-on-hover">
+          <img src={{articulo.imagen}} alt="Card Image" class="card-img-top">
+          <div class="card-body">
+            <h6><a routerLink="/articulos/{{articulo.id}}">{{articulo.nombre}}</a></h6>
+            <p class="text-muted card-text">$ {{articulo.precio}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+<section class="gallery-block cards-gallery">
+  <main class="container">
+
+    <h2 class="spaFont">Servicios</h2>
+    <hr>
+    <div class="row">
+      <div class="col-4" *ngFor="let servicio of sedeDetail.servicios; let i = index">
+        <div class="card border-0 transform-on-hover">
+          <img src={{servicio.imagen}} alt="Card Image" class="card-img-top">
+          <div class="card-body">
+            <h6><a routerLink="/servicios/{{servicio.id}}">{{servicio.nombre}}</a></h6>
+            <p class="text-muted card-text">{{servicio.descripcion}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+<section class="gallery-block cards-gallery">
+  <main class="container">
+
+    <h2 class="spaFont">Paquetes de servicios</h2>
+    <hr>
+    <div class="row">
+      <div class="col-4" *ngFor="let pack of sedeDetail.packsDeServicios; let i = index">
+        <div class="card border-0 transform-on-hover">
+          <img src={{pack.imagen}} alt="Card Image" class="card-img-top">
+          <div class="card-body">
+            <h6><a routerLink="/packs/{{pack.id}}">{{pack.nombre}}</a></h6>
+            <p class="text-muted card-text">{{pack.descuento}}% de descuento
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+<section class="gallery-block cards-gallery">
+  <main class="container">
+
+    <h2 class="spaFont">Trabajadores</h2>
+    <hr>
+    <div class="row">
+      <div class="col-4" *ngFor="let trabajador of sedeDetail.trabajadores; let i = index">
+        <div class="card border-0 transform-on-hover">
+          <img src={{trabajador.foto}} alt="Card Image" class="card-img-top">
+          <div class="card-body">
+            <h6><a routerLink="/trabajadores/{{trabajador.id}}">{{trabajador.nombre}}</a></h6>
+            <p class="text-muted card-text">puntos de calificacion: {{trabajador.calificacion}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+<section class="gallery-block cards-gallery">
+  <main class="container">
+
+    <h2 class="spaFont">Servicios Extra</h2>
+    <hr>
+    <div class="row">
+      <div class="col-4" *ngFor="let servicioExtra of sedeDetail.serviciosExtra; let i = index">
+        <div class="card border-0 transform-on-hover">
+          <img src={{servicioExtra.imagen}} alt="Card Image" class="card-img-top">
+          <div class="card-body">
+            <h6><a routerLink="/serviciosExtra/{{servicioExtra.id}}">{{servicioExtra.nombre}}</a></h6>
+            <p class="text-muted card-text"> ${{servicioExtra.precio}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+<div class="mt-5"></div>
+
+<!--- boton que implemente el metodo de updatePacks -->
+<div class="text-center">
+  <a routerLink="/sedes/update/{{sedeDetail.id}}" class="btn btn-primary">Editar Sede</a>
+</div>
+
+<!-- Crea un margen superior de 4 unidades|-->
+
+<div class="mt-5"></div>
+
+
+<!--- boton que implemente el metodo de deleteServicio -->
+<div class="text-center">
+  <a routerLink="/sedes/list" (click)="deleteSede()" class="btn-danger btn">Eliminar sede</a>
+</div>

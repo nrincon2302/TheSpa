@@ -1,0 +1,23 @@
+<div class="justify-content-center d-flex">
+  <div class="slider display-fle">
+    <div>
+      <div (click)="goToPrevious()" class="leftArrow">❰</div>
+      <div (click)="goToNext()" class="rightArrow">❱</div>
+      <div class="bg"></div>
+      <div class="text"></div>
+    </div>
+    <div class="slide justify-content-center" [ngStyle]="{ 'background-image': getCurrentSlideUrl()}"
+      [@slideAnimation]="currentIndex"></div>
+    <div class="card text-center">
+      <div class="card-body">
+        <h6 style="font-size: 17px; font-weight: bold; color: 212529;">{{getCurrentSlideTitle()}}</h6>
+      </div>
+    </div>
+    <div class="dotsContainer">
+      <div *ngFor="let slide of slides; let slideIndex = index" class="dot" [class.active]="slideIndex === currentIndex"
+        (click)="goToSlide(slideIndex)">
+        ●
+      </div>
+    </div>
+  </div>
+</div>

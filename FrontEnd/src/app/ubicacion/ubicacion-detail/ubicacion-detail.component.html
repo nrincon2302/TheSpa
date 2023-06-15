@@ -1,0 +1,35 @@
+<!-- Crea un margen superior de 4 unidades|-->
+
+<div class="mt-5"></div>
+
+<h3 class="spaFont">{{ubicacionDetail?.sede?.nombre}}</h3>
+
+<!-- Crea un margen superior de 4 unidades|-->
+
+<div class="mt-3"></div>
+<div class="row">
+  <div class="col-6">
+
+
+    <img class="roundedImg" src="{{ubicacionDetail?.sede?.imagen}}" alt="Imagen sede">
+
+  </div>
+  <div class="col-6">
+
+    <p class="lead">
+      <strong>Ciudad:</strong> {{ubicacionDetail?.ciudad}}
+      <br>
+      <strong>Dirección:</strong> {{ubicacionDetail?.direccion}}
+      <br>
+    </p>
+  </div>
+</div>
+
+<!-- Crea un margen superior de 4 unidades|-->
+
+<div class="mt-5"></div>
+
+<div style="display: flex; justify-content: center;">
+  <button class="btn btn-primary" (click)="refreshUbicacionDetail()">Cambiar sede</button>
+  <button class="btn btn-primary" routerLink="/sedes/{{ubicacionDetail?.sede?.id}}">Ver sede</button>
+</div>

@@ -1,0 +1,158 @@
+<div class="container">
+  <div class="row separate-bot">
+
+    <!-- TITULO -->
+
+    <div class="d-flex justify-content-center">
+      <h1 class="spaFont">Sedes</h1>
+    </div>
+
+    <div class="row">
+
+      <div style="height: 20px;"></div>
+
+    </div>
+
+
+
+    <!-- LADO IZQUIERDO  - FILTROS -->
+
+
+
+    <div class="col-3">
+
+      <div class="row">
+
+        <div style="height: 20px;"></div>
+
+      </div>
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control rounded my-button spaFont2" [(ngModel)]="searchNombre"
+          placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <span class="input-group-text button-label">
+            <img class="lupa-button" src="https://github.com/JuanCoronel/SisTrans-Group/blob/main/lupa.png?raw=true"
+              alt="Lupa" (click)="getSedes()">
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div style="height: 30px;"></div>
+
+      </div>
+
+      <h3 class="spaFont">Filtros</h3>
+
+
+
+      <div class="accordion  font-size: 15px; spaNewBg">
+
+
+        <h6 class="spaFont align1">Ubicacion</h6>
+
+        <div class="row">
+
+          <div style="height: 20px;"></div>
+
+        </div>
+
+        <div class="accordion-header" (click)="toggleAccordion(0)">
+          <p class="spaFont3">Dirección</p>
+          <button class="accordion-btn">{{ isOpen[0] ? '-' : '+' }}</button>
+        </div>
+        <div class="accordion-content" [hidden]="!isOpen[0]">
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control rounded my-button2 spaFont2" [(ngModel)]="searchDireccion"
+              placeholder="Direccion sede" aria-label="Direccion sede" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text button-label">
+                <img class="lupa-button" src="https://github.com/JuanCoronel/SisTrans-Group/blob/main/lupa.png?raw=true"
+                  alt="Lupa" (click)="getSedes()">
+              </span>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <!-- Adds a horizontal line divider -->
+
+
+        <div class="accordion-header" (click)="toggleAccordion(1)">
+          <p class="spaFont3">Ciudad</p>
+          <button class="accordion-btn">{{ isOpen[1] ? '-' : '+' }}</button>
+        </div>
+        <div class="accordion-content" [hidden]="!isOpen[1]">
+
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control rounded my-button2 spaFont2" [(ngModel)]="searchCiudad"
+              placeholder="Ciudad sede" aria-label="Ciudad sede" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text button-label">
+                <img class="lupa-button" src="https://github.com/JuanCoronel/SisTrans-Group/blob/main/lupa.png?raw=true"
+                  alt="Lupa" (click)="getSedes()">
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+    <!-- LADO DERECHO - LISTADOS -->
+
+    <!-- Despliegue del titulo 'Sedes' -->
+    <div class="col-9">
+      <!-- Aquí iría el contenido del título -->
+
+      <div>
+        <section class="gallery-block cards-gallery">
+
+
+          <div class="row">
+            <div class="col-4" *ngFor="let sede of sedes; let i = index">
+              <div class="card border-0 transform-on-hover custom-border">
+                <img src={{sede.imagen}} alt="Card Image" class="card-img-top">
+                <div class="card-body">
+                  <h6 class="spaFont"><a class="link" routerLink="/sedes/{{sede.id}}">{{sede.nombre}}</a></h6>
+                  <p class="spaFont22 d-flex justify-content-center">{{sede.ubicacion.ciudad}}</p>
+
+                  <p class="spaFont22 d-flex justify-content-center">{{sede.ubicacion.direccion}}</p>
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="text-center">
+    <a routerLink="/sedes/create" class="btn-primary btn">Crear Sede</a>
+  </div>
+
+
+</div>

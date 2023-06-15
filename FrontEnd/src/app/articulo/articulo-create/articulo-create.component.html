@@ -1,0 +1,143 @@
+<div class="container mt-4">
+  <h2 class="text-center">Create new article</h2>
+  <form class="servicio-form" [formGroup]="articuloForm"
+    (ngSubmit)="!articuloForm.invalid && createArticulo(articuloForm.value)">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="nombre">Name</label>
+      <input novalidate id="nombre" class="form-control" formControlName="nombre" placeholder="Articulo's Name" />
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="articuloForm.get('nombre')!.hasError('required') && articuloForm.get('nombre')!.touched">
+        Name required
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="articuloForm.get('nombre')!.hasError('minlength')">
+        Name too short
+      </div>
+    </div>
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="descripcion">Description</label>
+      <input novalidate id="descripcion" class="form-control" formControlName="descripcion"
+        placeholder="Articulo's short descripcion" />
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="articuloForm.get('descripcion')!.hasError('required') && articuloForm.get('descripcion')!.touched">
+        Description required
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="articuloForm.get('descripcion')!.hasError('maxlength')">
+        Description too long
+      </div>
+    </div>
+
+    <!--Precio-->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="precio">Precio en dólares</label>
+      <input novalidate id="precio" class="form-control" formControlName="precio" placeholder="Articulo's precio" />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="articuloForm.get
+      ('precio')!.hasError('required') && articuloForm.get('precio')!.touched">
+        Precio required
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="articuloForm.get
+      ('precio')!.hasError('maxlength')">
+        Precio too long
+      </div>
+      <!-- precio must be a valid pattern-->
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="articuloForm.get('precio')!.hasError('pattern')">
+        precio must be a valid price
+      </div>
+    </div>
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="sedes"> Sede </label>
+      <select class="form-control" id="sedes" rows="3" formControlName="sede">
+        <option value="">Select the sede</option>
+        <option [value]="a.id" *ngFor="let a of sedes">{{ a.nombre }}</option>
+      </select>
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="articuloForm.get('sede')!.hasError('required') && articuloForm.get('sede')!.touched">
+        Sede required
+      </div>
+    </div>
+
+    <!--Imagen-->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="imagen">Image</label>
+      <input novalidate id="imagen" class="form-control" formControlName="imagen" placeholder="Articulo's imagen" />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="articuloForm.get
+      ('imagen')!.hasError('required') && articuloForm.get('imagen')!.touched">
+        Imagen required
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="articuloForm.get('imagen')!.hasError('pattern')">
+        Imagen must be a valid url
+      </div>
+    </div>
+
+    <!--Talla-->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="talla">Talla</label>
+      <input novalidate id="talla" class="form-control" formControlName="talla" placeholder="Articulo's talla" />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="articuloForm.get
+      ('talla')!.hasError('required') && articuloForm.get('talla')!.touched">
+        Talla required
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="articuloForm.get
+      ('talla')!.hasError('maxlength')">
+        Talla too long
+      </div>
+      <div>
+        <div *ngIf="articuloForm.get('talla')!.hasError('pattern')">
+          Talla must be a valid number
+        </div>
+      </div>
+    </div>
+
+    <!--Color-->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="color">Color</label>
+      <input type="color" value="#ff0000" novalidate id="color" class="form-control" formControlName="color"
+        placeholder="Articulo's color" />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="articuloForm.get
+      ('color')!.hasError('required') && articuloForm.get('color')!.touched">
+        Color required
+      </div>
+      <div>
+        <div *ngIf="articuloForm.get('color')!.hasError('pattern')">
+          Color must valid
+        </div>
+      </div>
+    </div>
+
+    <!--numDisponible-->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="cantidad disponibles">Cantidad Unidades Disponibles</label>
+      <input novalidate id="numDisponible" class="form-control" formControlName="numDisponible"
+        placeholder="Articulo's disponibles" />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="articuloForm.get
+      ('numDisponible')!.hasError('required') && articuloForm.get('numDisponible')!.touched">
+        Cantidad Unidades Disponibles required
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="articuloForm.get
+      ('numDisponible')!.hasError('maxlength')">
+        Cantidad Unidades Disponibles too long
+      </div>
+      <div>
+        <div class="alert alert-danger alert-dismissible fade show"
+          *ngIf="articuloForm.get('numDisponible')!.hasError('pattern')">
+          Cantidad Unidades Disponibles must be a valid number
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button id="submit" type="submit" class="btn btn-primary" [disabled]="!articuloForm.valid">
+        Create
+      </button>
+      <button type="button" class="btn btn-danger ml-3" (click)="cancelCreation()">
+        Cancel
+      </button>
+    </div>
+
+  </form>
+</div>

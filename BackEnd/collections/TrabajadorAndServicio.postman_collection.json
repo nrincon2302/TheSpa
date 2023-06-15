@@ -1,0 +1,2083 @@
+{
+	"info": {
+		"_postman_id": "05efcc34-28f7-462a-a097-f2c322bdd379",
+		"name": "TrabajadorAndServicio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25519060"
+	},
+	"item": [
+		{
+			"name": "Crear una ubicación",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"ubicacion_id_1\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"latitud\": 4.603014,\n    \"longitud\": 74.065227,\n    \"ciudad\": \"Bogotá\",\n    \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ubicaciones",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ubicaciones"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una ubicación",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"latitud\": 4.603014,\n    \"longitud\": 74.065227,\n    \"ciudad\": \"Bogotá\",\n    \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ubicaciones",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ubicaciones"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"latitud\": 4.603014,\r\n    \"longitud\": 74.065227,\r\n    \"ciudad\": \"Bogotá\",\r\n    \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una Sede",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"sede_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Spa del Jardín\",\r\n    \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n    \"ubicacion\": {\r\n        \"id\": {{ubicacion_id_1}}\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/sedes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"sedes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una Sede",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Spa del Jardín\",\r\n    \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n    \"ubicacion\": {\r\n        \"id\": 1,\r\n        \"latitud\": 4.603014,\r\n        \"longitud\": 74.065227,\r\n        \"ciudad\": \"Bogotá\",\r\n        \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/sedes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sedes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Spa del Jardín\",\r\n    \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n    \"ubicacion\": {\r\n        \"id\": 1,\r\n        \"latitud\": 4.603014,\r\n        \"longitud\": 74.065227,\r\n        \"ciudad\": \"Bogotá\",\r\n        \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\",\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un Servicio 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"servicio_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"duracion\": 3,\r\n    \"restricciones\": \"restricción\",\r\n    \"disponible\": true,\r\n    \"horaInicio\": 8,\r\n    \"nombre\": \"masaje\",\r\n    \"descripcion\": \"masaje de relajacion\",\r\n    \"precio\": 30000.0,\r\n    \"imagen\": \"https://thumbs.dreamstime.com/b/spa-massage-outdoor-balinese-woman-receiving-back-53105227.jpg\",\r\n    \"sede\": {\r\n        \"id\": {{sede_id_1}}\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/servicios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"servicios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un Servicio",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"masaje\",\r\n    \"descripcion\": \"masaje de relajacion\",\r\n    \"precio\": 30000.0,\r\n    \"imagen\": \"https://thumbs.dreamstime.com/b/spa-massage-outdoor-balinese-woman-receiving-back-53105227.jpg\",\r\n    \"duracion\": 3,\r\n    \"restricciones\": \"restricción\",\r\n    \"disponible\": true,\r\n    \"horaInicio\": 8,\r\n    \"sede\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"Spa del Jardín\",\r\n        \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n        \"ubicacion\": {\r\n            \"id\": 1,\r\n            \"latitud\": 4.603014,\r\n            \"longitud\": 74.065227,\r\n            \"ciudad\": \"Bogotá\",\r\n            \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/servicios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"servicios"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"masaje\",\r\n    \"descripcion\": \"masaje de relajacion\",\r\n    \"precio\": 30000.0,\r\n    \"imagen\": \"https://thumbs.dreamstime.com/b/spa-massage-outdoor-balinese-woman-receiving-back-53105227.jpg\",\r\n    \"duracion\": 3,\r\n    \"restricciones\": \"restricción\",\r\n    \"disponible\": true,\r\n    \"horaInicio\": 8,\r\n    \"sede\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"Spa del Jardín\",\r\n        \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n        \"ubicacion\": {\r\n            \"id\": 1,\r\n            \"latitud\": 4.603014,\r\n            \"longitud\": 74.065227,\r\n            \"ciudad\": \"Bogotá\",\r\n            \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\r\n        }\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un Servicio 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"servicio_id_2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"duracion\": 5,\r\n    \"restricciones\": \"restricción\",\r\n    \"disponible\": true,\r\n    \"horaInicio\": 8,\r\n    \"nombre\": \"Manicure\",\r\n    \"descripcion\": \"Pintar uñas\",\r\n    \"precio\": 15000.0,\r\n    \"imagen\": \"https://www.spanails-delmaresole.gr/wp-content/uploads/2019/07/luxurious-manicure.jpg\",\r\n    \"sede\": {\r\n        \"id\": {{sede_id_1}}\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/servicios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"servicios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un Servicio 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"masaje\",\r\n    \"descripcion\": \"masaje de relajacion\",\r\n    \"precio\": 30000.0,\r\n    \"imagen\": \"https://thumbs.dreamstime.com/b/spa-massage-outdoor-balinese-woman-receiving-back-53105227.jpg\",\r\n    \"duracion\": 3,\r\n    \"restricciones\": \"restricción\",\r\n    \"disponible\": true,\r\n    \"horaInicio\": 8,\r\n    \"sede\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"Spa del Jardín\",\r\n        \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n        \"ubicacion\": {\r\n            \"id\": 1,\r\n            \"latitud\": 4.603014,\r\n            \"longitud\": 74.065227,\r\n            \"ciudad\": \"Bogotá\",\r\n            \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/servicios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"servicios"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 2,\r\n    \"nombre\": \"masaje\",\r\n    \"descripcion\": \"masaje de relajacion\",\r\n    \"precio\": 30000.0,\r\n    \"imagen\": \"https://thumbs.dreamstime.com/b/spa-massage-outdoor-balinese-woman-receiving-back-53105227.jpg\",\r\n    \"duracion\": 3,\r\n    \"restricciones\": \"restricción\",\r\n    \"disponible\": true,\r\n    \"horaInicio\": 8,\r\n    \"sede\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"Spa del Jardín\",\r\n        \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n        \"ubicacion\": {\r\n            \"id\": 1,\r\n            \"latitud\": 4.603014,\r\n            \"longitud\": 74.065227,\r\n            \"ciudad\": \"Bogotá\",\r\n            \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\r\n        }\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un Servicio 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"servicio_id_3\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"duracion\": 9,\r\n    \"restricciones\": \"restricción\",\r\n    \"disponible\": false,\r\n    \"horaInicio\": 12,\r\n    \"nombre\": \"Lavado folicular\",\r\n    \"descripcion\": \"Relajante lavado de pelo con shampoo frutal\",\r\n    \"precio\": 20000.0,\r\n    \"imagen\": \"https://phantom-elmundo.unidadeditorial.es/ab8da5ec48e75c920967103b4290ff34/resize/414/f/jpg/assets/multimedia/imagenes/2021/01/13/16105562709407.jpg\",\r\n    \"sede\": {\r\n        \"id\": {{sede_id_1}}\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/servicios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"servicios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un Servicio 3",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"masaje\",\r\n    \"descripcion\": \"masaje de relajacion\",\r\n    \"precio\": 30000.0,\r\n    \"imagen\": \"https://thumbs.dreamstime.com/b/spa-massage-outdoor-balinese-woman-receiving-back-53105227.jpg\",\r\n    \"duracion\": 3,\r\n    \"restricciones\": \"restricción\",\r\n    \"disponible\": true,\r\n    \"horaInicio\": 8,\r\n    \"sede\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"Spa del Jardín\",\r\n        \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n        \"ubicacion\": {\r\n            \"id\": 1,\r\n            \"latitud\": 4.603014,\r\n            \"longitud\": 74.065227,\r\n            \"ciudad\": \"Bogotá\",\r\n            \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/servicios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"servicios"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 3,\r\n    \"nombre\": \"masaje\",\r\n    \"descripcion\": \"masaje de relajacion\",\r\n    \"precio\": 30000.0,\r\n    \"imagen\": \"https://thumbs.dreamstime.com/b/spa-massage-outdoor-balinese-woman-receiving-back-53105227.jpg\",\r\n    \"duracion\": 3,\r\n    \"restricciones\": \"restricción\",\r\n    \"disponible\": true,\r\n    \"horaInicio\": 8,\r\n    \"sede\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"Spa del Jardín\",\r\n        \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n        \"ubicacion\": {\r\n            \"id\": 1,\r\n            \"latitud\": 4.603014,\r\n            \"longitud\": 74.065227,\r\n            \"ciudad\": \"Bogotá\",\r\n            \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\r\n        }\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"trabajador_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\r\n    \"nombre\": \"Dwight Schrute\",\r\n    \"calificacion\": 10,\r\n    \"enHallOfFame\": true,\r\n    \"sedes\":[\r\n        {\r\n            \"id\": {{sede_id_1}}\r\n        }\r\n    ],\r\n    \"servicios\": [\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un Trabajador",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Dwight Schrute\",\r\n    \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\r\n    \"calificacion\": 10,\r\n    \"enHallOfFame\": true,\r\n    \"sedes\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombre\": \"Spa del Jardín\",\r\n            \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n            \"ubicacion\": {\r\n                \"id\": 1,\r\n                \"latitud\": 4.603014,\r\n                \"longitud\": 74.065227,\r\n                \"ciudad\": \"Bogotá\",\r\n                \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\r\n            }\r\n        }\r\n    ],\r\n    \"servicios\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombre\": \"masaje\",\r\n            \"descripcion\": \"masaje de relajacion\",\r\n            \"precio\": 30000.0,\r\n            \"imagen\": \"https://thumbs.dreamstime.com/b/spa-massage-outdoor-balinese-woman-receiving-back-53105227.jpg\",\r\n            \"duracion\": 3,\r\n            \"restricciones\": \"restricción\",\r\n            \"disponible\": true,\r\n            \"horaInicio\": 8,\r\n            \"sede\": {\r\n                \"id\": 1,\r\n                \"nombre\": \"Spa del Jardín\",\r\n                \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n                \"ubicacion\": {\r\n                    \"id\": 1,\r\n                    \"latitud\": 4.603014,\r\n                    \"longitud\": 74.065227,\r\n                    \"ciudad\": \"Bogotá\",\r\n                    \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Dwight Schrute\",\r\n    \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\r\n    \"calificacion\": 10,\r\n    \"enHallOfFame\": true,\r\n    \"sedes\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombre\": \"Spa del Jardín\",\r\n            \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n            \"ubicacion\": {\r\n                \"id\": 1,\r\n                \"latitud\": 4.603014,\r\n                \"longitud\": 74.065227,\r\n                \"ciudad\": \"Bogotá\",\r\n                \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\r\n            }\r\n        }\r\n    ],\r\n    \"servicios\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombre\": \"masaje\",\r\n            \"descripcion\": \"masaje de relajacion\",\r\n            \"precio\": 30000.0,\r\n            \"imagen\": \"https://thumbs.dreamstime.com/b/spa-massage-outdoor-balinese-woman-receiving-back-53105227.jpg\",\r\n            \"duracion\": 3,\r\n            \"restricciones\": \"restricción\",\r\n            \"disponible\": true,\r\n            \"horaInicio\": 8,\r\n            \"sede\": {\r\n                \"id\": 1,\r\n                \"nombre\": \"Spa del Jardín\",\r\n                \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\",\r\n                \"ubicacion\": {\r\n                    \"id\": 1,\r\n                    \"latitud\": 4.603014,\r\n                    \"longitud\": 74.065227,\r\n                    \"ciudad\": \"Bogotá\",\r\n                    \"direccion\": \"Cl. 20 #19a-71 a 19a-1, Bogotá\"\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar un Servicio a un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}",
+						"servicios",
+						"{{servicio_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar un Servicio a un Trabajador",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								"{{servicio_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"masaje\",\r\n    \"descripcion\": \"masaje de relajacion\",\r\n    \"precio\": 30000.0,\r\n    \"imagen\": \"https://thumbs.dreamstime.com/b/spa-massage-outdoor-balinese-woman-receiving-back-53105227.jpg\",\r\n    \"duracion\": 3,\r\n    \"restricciones\": \"restricción\",\r\n    \"disponible\": true,\r\n    \"horaInicio\": 8\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar un Servicio a un Trabajador No Existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"TRABAJADOR_NOT_FOUND\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/0/servicios/{{servicio_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"0",
+						"servicios",
+						"{{servicio_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar un Servicio a un Trabajador No Existente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/0/servicios/{{servicio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"0",
+								"servicios",
+								"{{servicio_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-03-2023 01:10:28\",\r\n        \"message\": \"TRABAJADOR_NOT_FOUND\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar un Servicio No Existente a un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"SERVICE_NOT_FOUND\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}",
+						"servicios",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar un Servicio No Existente a un Trabajador",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								"{{servicio_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-03-2023 01:10:48\",\r\n        \"message\": \"SERVICE_NOT_FOUND\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar un Servicio Ya Existente a un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"SERVICE_ALREADY_EXISTS\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}",
+						"servicios",
+						"{{servicio_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar un Servicio Ya Existente a un Trabajador",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								"{{servicio_id_1}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-03-2023 01:10:48\",\r\n        \"message\": \"SERVICE_ALREADY_FOUND\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Consultar todos los Servicios de un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of servicios > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}",
+						"servicios",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Consultar todos los Servicios de un Trabajador",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": 1,\r\n        \"nombre\": \"masaje\",\r\n        \"descripcion\": \"masaje de relajacion\",\r\n        \"precio\": 30000.0,\r\n        \"imagen\": \"https://thumbs.dreamstime.com/b/spa-massage-outdoor-balinese-woman-receiving-back-53105227.jpg\",\r\n        \"duracion\": 3,\r\n        \"restricciones\": \"restricción\",\r\n        \"disponible\": true,\r\n        \"horaInicio\": 8,\r\n        \"sede\": {\r\n            \"id\": 1,\r\n            \"nombre\": \"Spa del Jardín\",\r\n            \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\"\r\n        },\r\n        \"packsDeServicios\": [],\r\n        \"trabajadores\": [\r\n            {\r\n                \"id\": 1,\r\n                \"nombre\": \"Dwight Schrute\",\r\n                \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\r\n                \"calificacion\": 10,\r\n                \"enHallOfFame\": true\r\n            }\r\n        ]\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Consultar todos los Servicios de un Trabajador No Existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"TRABAJADOR_NOT_FOUND\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/0/servicios/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"0",
+						"servicios",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Consultar todos los Servicios de un Trabajador No Existente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/0/servicios/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"0",
+								"servicios",
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-03-2023 01:08:52\",\r\n        \"message\": \"TRABAJADOR_NOT_FOUND\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Consultar un Servicio de un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}",
+						"servicios",
+						"{{servicio_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Consultar un Servicio de un Trabajador",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								"{{servicio_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"masaje\",\r\n    \"descripcion\": \"masaje de relajacion\",\r\n    \"precio\": 30000.0,\r\n    \"imagen\": \"https://thumbs.dreamstime.com/b/spa-massage-outdoor-balinese-woman-receiving-back-53105227.jpg\",\r\n    \"duracion\": 3,\r\n    \"restricciones\": \"restricción\",\r\n    \"disponible\": true,\r\n    \"horaInicio\": 8,\r\n    \"sede\": {\r\n        \"id\": 1,\r\n        \"nombre\": \"Spa del Jardín\",\r\n        \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\"\r\n    },\r\n    \"packsDeServicios\": [],\r\n    \"trabajadores\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nombre\": \"Dwight Schrute\",\r\n            \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\r\n            \"calificacion\": 10,\r\n            \"enHallOfFame\": true\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Consultar un Servicio de un Trabajador No Existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"TRABAJADOR_NOT_FOUND\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/0/servicios/{{servicio_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"0",
+						"servicios",
+						"{{servicio_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Consultar un Servicio de un Trabajador No Existente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/0/servicios/{{servicio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"0",
+								"servicios",
+								"{{servicio_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-03-2023 01:08:52\",\r\n        \"message\": \"TRABAJADOR_NOT_FOUND\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Consultar un Servicio No Existente de un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"SERVICE_NOT_FOUND\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}",
+						"servicios",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Consultar un Servicio No Existente de un Trabajador",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-03-2023 01:36:10\",\r\n        \"message\": \"SERVICE_NOT_FOUND\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Consultar un Servicio No Asociado a un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"El servicio no está asociado al trabajador\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}",
+						"servicios",
+						"{{servicio_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Consultar un Servicio No Asociado a un Trabajador",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								"{{servicio_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-03-2023 01:36:10\",\r\n        \"message\": \"El servicio no está asociado al trabajador\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Reemplazar los Servicios de un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": {{servicio_id_2}}\r\n    },\r\n    {\r\n        \"id\": {{servicio_id_3}}\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}",
+						"servicios",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reemplazar los Servicios de un Trabajador",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 2,\r\n        \"nombre\": \"Manicure\",\r\n        \"descripcion\": \"Pintar uñas\",\r\n        \"precio\": 15000.0,\r\n        \"imagen\": \"https://www.spanails-delmaresole.gr/wp-content/uploads/2019/07/luxurious-manicure.jpg\",\r\n        \"duracion\": 5,\r\n        \"restricciones\": \"restricción\",\r\n        \"disponible\": true,\r\n        \"horaInicio\": 8,\r\n        \"sede\": {\r\n            \"id\": 1,\r\n            \"nombre\": \"Spa del Jardín\",\r\n            \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\"\r\n        },\r\n        \"packsDeServicios\": [],\r\n        \"trabajadores\": [\r\n            {\r\n                \"id\": 1,\r\n                \"nombre\": \"Dwight Schrute\",\r\n                \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\r\n                \"calificacion\": 10,\r\n                \"enHallOfFame\": true\r\n            }\r\n        ]\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"nombre\": \"Lavado folicular\",\r\n        \"descripcion\": \"Relajante lavado de pelo con shampoo frutal\",\r\n        \"precio\": 20000.0,\r\n        \"imagen\": \"https://phantom-elmundo.unidadeditorial.es/ab8da5ec48e75c920967103b4290ff34/resize/414/f/jpg/assets/multimedia/imagenes/2021/01/13/16105562709407.jpg\",\r\n        \"duracion\": 9,\r\n        \"restricciones\": \"restricción\",\r\n        \"disponible\": false,\r\n        \"horaInicio\": 12,\r\n        \"sede\": {\r\n            \"id\": 1,\r\n            \"nombre\": \"Spa del Jardín\",\r\n            \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\"\r\n        },\r\n        \"packsDeServicios\": [],\r\n        \"trabajadores\": [\r\n            {\r\n                \"id\": 1,\r\n                \"nombre\": \"Dwight Schrute\",\r\n                \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\r\n                \"calificacion\": 10,\r\n                \"enHallOfFame\": true\r\n            }\r\n        ]\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Mar 2023 19:59:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2,\n        \"nombre\": \"Manicure\",\n        \"descripcion\": \"Pintar uñas\",\n        \"precio\": 15000.0,\n        \"imagen\": \"https://www.spanails-delmaresole.gr/wp-content/uploads/2019/07/luxurious-manicure.jpg\",\n        \"duracion\": 5,\n        \"restricciones\": \"restricción\",\n        \"disponible\": true,\n        \"horaInicio\": 8,\n        \"sede\": {\n            \"id\": 1,\n            \"nombre\": \"Spa del Jardín\",\n            \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\"\n        },\n        \"packsDeServicios\": [],\n        \"trabajadores\": [\n            {\n                \"id\": 1,\n                \"nombre\": \"Dwight Schrute\",\n                \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\n                \"calificacion\": 10,\n                \"enHallOfFame\": true\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"nombre\": \"Lavado folicular\",\n        \"descripcion\": \"Relajante lavado de pelo con shampoo frutal\",\n        \"precio\": 20000.0,\n        \"imagen\": \"https://phantom-elmundo.unidadeditorial.es/ab8da5ec48e75c920967103b4290ff34/resize/414/f/jpg/assets/multimedia/imagenes/2021/01/13/16105562709407.jpg\",\n        \"duracion\": 9,\n        \"restricciones\": \"restricción\",\n        \"disponible\": false,\n        \"horaInicio\": 12,\n        \"sede\": {\n            \"id\": 1,\n            \"nombre\": \"Spa del Jardín\",\n            \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\"\n        },\n        \"packsDeServicios\": [],\n        \"trabajadores\": [\n            {\n                \"id\": 1,\n                \"nombre\": \"Dwight Schrute\",\n                \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\n                \"calificacion\": 10,\n                \"enHallOfFame\": true\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Reemplazar un Servicio No Existente en un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"SERVICE_NOT_FOUND\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 0,\r\n        \"nombre\": \"Manicure\",\r\n        \"descripcion\": \"Pintar uñas\",\r\n        \"precio\": 15000.0,\r\n        \"imagen\": \"https://www.spanails-delmaresole.gr/wp-content/uploads/2019/07/luxurious-manicure.jpg\",\r\n        \"duracion\": 5,\r\n        \"restricciones\": \"restricción\",\r\n        \"disponible\": true,\r\n        \"horaInicio\": 8,\r\n        \"sede\": {\r\n            \"id\": 1,\r\n            \"nombre\": \"Spa del Jardín\",\r\n            \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\"\r\n        },\r\n        \"packsDeServicios\": [],\r\n        \"trabajadores\": [\r\n            {\r\n                \"id\": 1,\r\n                \"nombre\": \"Dwight Schrute\",\r\n                \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\r\n                \"calificacion\": 10,\r\n                \"enHallOfFame\": true\r\n            }\r\n        ]\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}",
+						"servicios",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reemplazar un Servicio No Existente en un Trabajador",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 0,\r\n        \"nombre\": \"Manicure\",\r\n        \"descripcion\": \"Pintar uñas\",\r\n        \"precio\": 15000.0,\r\n        \"imagen\": \"https://www.spanails-delmaresole.gr/wp-content/uploads/2019/07/luxurious-manicure.jpg\",\r\n        \"duracion\": 5,\r\n        \"restricciones\": \"restricción\",\r\n        \"disponible\": true,\r\n        \"horaInicio\": 8,\r\n        \"sede\": {\r\n            \"id\": 1,\r\n            \"nombre\": \"Spa del Jardín\",\r\n            \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\"\r\n        },\r\n        \"packsDeServicios\": [],\r\n        \"trabajadores\": [\r\n            {\r\n                \"id\": 1,\r\n                \"nombre\": \"Dwight Schrute\",\r\n                \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\r\n                \"calificacion\": 10,\r\n                \"enHallOfFame\": true\r\n            }\r\n        ]\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Mar 2023 19:59:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-03-2023 03:10:57\",\n        \"message\": \"SERVICE_NOT_FOUND\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Reemplazar los Servicio de un Trabajador No Existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"TRABAJADOR_NOT_FOUND\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": {{servicio_id_2}}\r\n    },\r\n    {\r\n        \"id\": {{servicio_id_3}}\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/0/servicios/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"0",
+						"servicios",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reemplazar los Servicio de un Trabajador No Existente",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 2,\r\n        \"nombre\": \"Manicure\",\r\n        \"descripcion\": \"Pintar uñas\",\r\n        \"precio\": 15000.0,\r\n        \"imagen\": \"https://www.spanails-delmaresole.gr/wp-content/uploads/2019/07/luxurious-manicure.jpg\",\r\n        \"duracion\": 5,\r\n        \"restricciones\": \"restricción\",\r\n        \"disponible\": true,\r\n        \"horaInicio\": 8,\r\n        \"sede\": {\r\n            \"id\": 1,\r\n            \"nombre\": \"Spa del Jardín\",\r\n            \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\"\r\n        },\r\n        \"packsDeServicios\": [],\r\n        \"trabajadores\": [\r\n            {\r\n                \"id\": 1,\r\n                \"nombre\": \"Dwight Schrute\",\r\n                \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\r\n                \"calificacion\": 10,\r\n                \"enHallOfFame\": true\r\n            }\r\n        ]\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"nombre\": \"Lavado folicular\",\r\n        \"descripcion\": \"Relajante lavado de pelo con shampoo frutal\",\r\n        \"precio\": 20000.0,\r\n        \"imagen\": \"https://phantom-elmundo.unidadeditorial.es/ab8da5ec48e75c920967103b4290ff34/resize/414/f/jpg/assets/multimedia/imagenes/2021/01/13/16105562709407.jpg\",\r\n        \"duracion\": 9,\r\n        \"restricciones\": \"restricción\",\r\n        \"disponible\": false,\r\n        \"horaInicio\": 12,\r\n        \"sede\": {\r\n            \"id\": 1,\r\n            \"nombre\": \"Spa del Jardín\",\r\n            \"imagen\": \"https://www.visit.alsace/wp-content/uploads/lei/pictures/215002309-nature-spa-la-cheneaudiere-11-1600x900.jpg\"\r\n        },\r\n        \"packsDeServicios\": [],\r\n        \"trabajadores\": [\r\n            {\r\n                \"id\": 1,\r\n                \"nombre\": \"Dwight Schrute\",\r\n                \"foto\": \"https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_1440x810/public/media/image/2022/06/office-dwight-schrute-2733589.jpg?itok=zAhOkd3D\",\r\n                \"calificacion\": 10,\r\n                \"enHallOfFame\": true\r\n            }\r\n        ]\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/0/servicios/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"0",
+								"servicios",
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 21 Mar 2023 19:59:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-03-2023 03:10:57\",\n        \"message\": \"TRABAJADOR_NOT_FOUND\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un Servicio de un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_3}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}",
+						"servicios",
+						"{{servicio_id_3}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un Servicio de un Trabajador",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_3}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								"{{servicio_id_3}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar un Servicio de un Trabajador No Existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"TRABAJADOR_NOT_FOUND\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/0/servicios/{{servicio_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"0",
+						"servicios",
+						"{{servicio_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un Servicio de un Trabajador No Existente",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_3}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								"{{servicio_id_3}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-03-2023 03:16:36\",\r\n        \"message\": \"TRABAJADOR_NOT_FOUND\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un Servicio No Existente de un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"SERVICE_NOT_FOUND\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}",
+						"servicios",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un Servicio No Existente de un Trabajador",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_3}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								"{{servicio_id_3}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-03-2023 03:16:36\",\r\n        \"message\": \"SERVICE_NOT_FOUND\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un Servicio No Asociado a un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"SERVICE_NOT_FOUND_IN_CURRENT_TRABAJADOR\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_3}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}",
+						"servicios",
+						"{{servicio_id_3}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un Servicio No Existente de un Trabajador",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}/servicios/{{servicio_id_3}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}",
+								"servicios",
+								"{{servicio_id_3}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"PRECONDITION_FAILED\",\r\n        \"timestamp\": \"21-03-2023 05:45:22\",\r\n        \"message\": \"SERVICE_NOT_FOUND_IN_CURRENT_TRABAJADOR\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un Trabajador",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores/{{trabajador_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores",
+								"{{trabajador_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar un Servicio 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/servicios/{{servicio_id_3}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"servicios",
+						"{{servicio_id_3}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un Servicio",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/servicios/{{servicio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"servicios",
+								"{{servicio_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar un Servicio 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/servicios/{{servicio_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"servicios",
+						"{{servicio_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un Servicio",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/servicios/{{servicio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"servicios",
+								"{{servicio_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar un Servicio 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/servicios/{{servicio_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"servicios",
+						"{{servicio_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un Servicio",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/servicios/{{servicio_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"servicios",
+								"{{servicio_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una Sede",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/sedes/{{sede_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"sedes",
+						"{{sede_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una Sede",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/sedes/{{sede_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sedes",
+								"{{sede_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una Ubicación",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ubicaciones/{{ubicacion_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ubicaciones",
+						"{{ubicacion_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una Ubicación",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ubicaciones/{{ubicacion_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ubicaciones",
+								"{{ubicacion_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	]
+}

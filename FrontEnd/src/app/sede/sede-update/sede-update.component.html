@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <h2 class="text-center">Actualizar una sede</h2>
+  <form class="sede-form" [formGroup]= "sedeForm"
+    (ngSubmit)="!sedeForm.invalid && updateSede(sedeForm.value)">
+  <!-- Name -->
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="nombre">Name</label>
+    <input novalidate id="nombre" class="form-control" formControlName="nombre" placeholder="Sede's nombre" />
+    <div class="alert alert-danger alert-dismissible fade show"
+      *ngIf="sedeForm.get('nombre')!.hasError('required') && sedeForm.get('nombre')!.touched">
+      Name required
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show"
+      *ngIf="sedeForm.get('nombre')!.hasError('minlength')">
+      Name too short
+    </div>
+  </div>
+
+  <!--Image, which must be a valid url-->
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="imagen">Image</label>
+    <input novalidate id="imagen" class="form-control" formControlName="imagen" placeholder="Sede's imagen" />
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+                sedeForm.get('imagen')!.hasError('required') &&
+                sedeForm.get('imagen')!.touched
+              ">
+      Image required
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show"
+      *ngIf="sedeForm.get('imagen')!.hasError('pattern')">
+      Image must be a valid url
+    </div>
+  </div>
+
+  <button id="submit" type="submit" class="btn btn-primary" [disabled]="!sedeForm.valid">
+    Update
+  </button>
+  <button type="button" class="btn btn-danger ml-3" (click)="cancelCreation()">
+    Cancel
+  </button>
+</form>
+</div>
+

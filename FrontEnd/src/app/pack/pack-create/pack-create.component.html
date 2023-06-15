@@ -1,0 +1,100 @@
+<div class="container mt-4">
+  <h2 class="text-center">Crear un nuevo paquete</h2>
+  <form class="pack-form" [formGroup]="packForm" (ngSubmit)="!packForm.invalid && createPack(packForm.value)">
+    <!-- Name -->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="nombre">Name</label>
+      <input novalidate id="nombre" class="form-control" formControlName="nombre" placeholder="Pack's nombre" />
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="packForm.get('nombre')!.hasError('required') && packForm.get('nombre')!.touched">
+        Name required
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="packForm.get('nombre')!.hasError('minlength')">
+        Name too short
+      </div>
+    </div>
+
+
+
+    <!-- Sedes -->
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="sedes"> Sede </label>
+      <select class="form-control" id="sedes" rows="3" formControlName="sede">
+        <option value="">Select the sede</option>
+        <option [value]="a.id" *ngFor="let a of sedes">{{ a.nombre }}</option>
+      </select>
+    </div>
+    <!-- Sede is a formBuilder itself, with an atribute 'id', so we must insert a.id into this id-->
+    <div class="alert alert-danger alert-dismissible fade show"
+      *ngIf="packForm.get('sede')!.hasError('required') && packForm.get('sede')!.touched">
+      Sede required
+    </div>
+
+
+
+
+    <!-- descuento -->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="descuento">descuento</label>
+      <input novalidate id="descuento" class="form-control" formControlName="descuento"
+        placeholder="Pack's short descuento" />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+                  packForm.get('descuento')!.hasError('required') &&
+                  packForm.get('descuento')!.touched
+                ">
+        descuento required
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="packForm.get('descuento')!.hasError('maxlength')">
+        descuento too long
+      </div>
+      <!-- descuento must be a valid time-->
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="packForm.get('descuento')!.hasError('pattern')">
+        descuento must be a valid descuento
+      </div>
+    </div>
+
+    <!-- Un paquete tiene una lista de servicios -->
+    <div class="form-group mx-sm-3 mb-2">
+      <label>Servicios (se necesitan al menos dos)</label>
+      <div>
+        <div *ngFor="let a of servicios">
+          <label class="btn2 btn-primary2">
+            <input type="checkbox" [value]="a.id" (change)="onCheckboxChange($event)">
+            {{ a.nombre }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!--Image, which must be a valid url-->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="imagen">Image</label>
+      <input novalidate id="imagen" class="form-control" formControlName="imagen" placeholder="Pack's imagen" />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+                  packForm.get('imagen')!.hasError('required') &&
+                  packForm.get('imagen')!.touched
+                ">
+        Image required
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="packForm.get('imagen')!.hasError('pattern')">
+        Image must be a valid url
+      </div>
+    </div>
+
+
+
+
+    <button id="submit" type="submit" class="btn btn-primary" [disabled]="!packForm.valid">
+      Create
+    </button>
+    <button type="button" class="btn btn-danger ml-3" (click)="cancelCreation()">
+      Cancel
+    </button>
+  </form>
+</div>

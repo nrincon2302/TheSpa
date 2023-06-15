@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-6 px-0">
+    <google-map [center]="center" [zoom]="zoom">
+      <map-marker *ngFor="let ubicacion of ubicaciones" [position]="{lat: ubicacion.latitud, lng: ubicacion.longitud}"
+        [options]="markerOptions" (mapClick)="selectUbicacion(ubicacion)"></map-marker>
+    </google-map>
+  </div>
+  <div class="col-md-6 px-0">
+    <h1 class="display-4 fst-italic">Conoce nuestras Ubicaciones</h1>
+    <p class="lead my-3">The spa cuenta con un gran número de sedes a lo largo del país, puedes verlas todas en el mapa
+      interactivo.</p>
+    <app-ubicacion-detail *ngIf="selectedUbicacion" [ubicacion]="selectedUbicacion"></app-ubicacion-detail>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<main class="container">
+
+    <div class="p-4 p-md-5 mb-4 text-white spa-bg"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.100),rgba(0, 0, 0, 0.5)) ,url('{{servicioExtraDetail.imagen}}');">
+
+        <div class="col-md-6 texto">
+            <h1 class="spaFont2">{{servicioExtraDetail.nombre}}</h1>
+
+            <p class="spaFont3 margin1 justify-content-left">Detalles: {{servicioExtraDetail.descripcion}}</p>
+
+            <h3 class="spaFont3 justify-content-left">Precio: ${{servicioExtraDetail.precio}}</h3>
+
+            <p class="spaFont3 justify-content-left">Disponible: {{disponible}}</p>
+
+
+            <!-- Crea un margen superior de 4 unidades|-->
+
+            <div class="mt-5"></div>
+
+
+            <div class="mt-3"></div>
+        </div>
+    </div>
+</main>
+
+<main>
+
+    <section class="gallery-block cards-gallery">
+        <h2 class="spaFont">Sede en la que está disponible</h2>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <div class="card border-0 transform-on-hover">
+                    <img src={{servicioExtraDetail.sede.imagen}} alt="Card Image" class="card-img-top">
+                    <div class="card-body">
+                        <h6><a class="link"
+                                routerLink="/sedes/{{servicioExtraDetail.sede.id}}">{{servicioExtraDetail.sede.nombre}}</a>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="mt-5"></div>
+
+<!--- boton que implemente el metodo de updatePacks -->
+<div class="text-center">
+  <a routerLink="/serviciosExtra/update/{{servicioExtraDetail.id}}" class="btn btn-primary">Editar Servicio Extra</a>
+</div>
+
+<!-- Crea un margen superior de 4 unidades|-->
+
+<div class="mt-5"></div>
+
+<!--- boton que implemente el metodo de deleteServicioExtra -->
+<div class="text-center">
+    <a routerLink="/serviciosExtra/list" (click)="deleteServicioExtra()" class="btn-danger btn">Eliminar Servicio
+        Extra</a>
+</div>

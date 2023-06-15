@@ -1,0 +1,72 @@
+<div class="heading">
+  <h1 class="spaFont">Hall of Fame</h1>
+</div>
+
+
+<!-- <div style="width: 820px; height: 460px; margin: 0 auto">
+  <image-slider [slides]="slides"></image-slider>
+</div> -->
+
+<div class="container-fluid">
+  <div *ngIf="selected">
+    <div class="row">
+      <div class="col-5">
+        <img src="{{selectedTrabajador.foto}}" alt="">
+      </div>
+      <div class="col-7">
+        <h3>{{selectedTrabajador.nombre}}</h3>
+        <div class="stars">
+          <div class="stars" *ngFor="let i of arrayT">
+            <div *ngIf="i">
+              <span class="fa fa-star checked"></span>
+            </div>
+          </div>
+          <div class="stars" *ngFor="let i of arrayF">
+            <div *ngIf="i">
+              <span class="fa fa-star"></span>
+            </div>
+          </div>
+        </div>
+        <p>&nbsp;</p>
+        <h4 class="spaFont22">Sedes disponibles:</h4>
+        <div *ngFor="let sede of selectedTrabajador.sedes">
+          <h4 class="spaFont22"><a class="link" routerLink="/sedes/{{sede.id}}">• {{sede.nombre}} </a></h4>
+        </div>
+        <p>&nbsp;</p>
+        <h4 class="spaFont22">Servicios:</h4>
+        <div *ngFor="let servicio of selectedTrabajador.servicios">
+          <h4 class="spaFont22" style="text-transform: capitalize;"><a class="link"
+              routerLink="/servicios/{{servicio.id}}">• {{servicio.nombre}} </a></h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Crea un margen superior de 4 unidades|-->
+
+<div class="mt-5"></div>
+
+
+
+<section class="slider-wrapper">
+  <div class="slider-track">
+    <div class="slide" *ngFor="let trabajador of trabajadores">
+      <img src={{trabajador.foto}} (click)="setSelect(trabajador)">
+    </div>
+    <div class="slide" *ngFor="let trabajador of trabajadores">
+      <img src={{trabajador.foto}} (click)="setSelect(trabajador)">
+    </div>
+    <div class="slide" *ngFor="let trabajador of trabajadores">
+      <img src={{trabajador.foto}} (click)="setSelect(trabajador)">
+    </div>
+    <div class="slide" *ngFor="let trabajador of trabajadores">
+      <img src={{trabajador.foto}} (click)="setSelect(trabajador)">
+    </div>
+    <div class="slide" *ngFor="let trabajador of trabajadores">
+      <img src={{trabajador.foto}} (click)="setSelect(trabajador)">
+    </div>
+  </div>
+</section>

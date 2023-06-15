@@ -1,0 +1,123 @@
+/* stylelint-disable selector-list-comma-newline-after */
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 .display-4 {
+    font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .display-4 {
+        font-size: 3rem;
+    }
+}
+
+
+
+
+
+
+.imgContainer {
+    max-height: fit-content;
+}
+
+
+@media (min-width: 768px) {
+    .h-md-250 {
+        height: 250px;
+    }
+}
+
+
+.link {
+    color: #212529;
+}
+
+.imagen img {
+    height: 200px;
+    width: 200px;
+    display: block;
+    margin: auto;
+
+    object-fit: contain;
+    position: absolute;
+    max-width: 100%;
+}
+
+
+.blog-footer p:last-child {
+    margin-bottom: 0;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.spa-bg {
+    background-image: url('https://londonrestaurantfestival.com/wp-content/uploads/2021/09/FS-Ten-Trinity-Square-Spa-Treatment-Room-2-scaled.jpg');
+    height: 500px !important;
+    border-bottom-left-radius: 160px;
+    /* shows only the bottom part of the image */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.texto {
+    text-align: justify;
+    margin-top: 80px;
+    margin-left: 120px;
+
+}
+
+.spaFont {
+
+    font-family: 'DM Serif Display', serif;
+    font-weight: 20px !important;
+    color: #e5e5e5;
+}
+
+
+.fontInside {
+    color: #212529;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    vertical-align: center;
+    font-weight: 500;
+}
+
+.rectangulo {
+    width: 200px;
+    height: 60px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 18px;
+    position: relative;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.rectangulo:hover {
+    background-color: #F4F0EC;
+    transform: scale(1.02);
+}
